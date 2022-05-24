@@ -26,11 +26,11 @@ public class LottoPicker {
         int numberOfNumbersGenerated = 0;
         int total = 5;
 
-        while (numberOfNumbersGenerated < total){
+        while (numberOfNumbersGenerated < total) {
             int randomNumber = random.nextInt(30);
             System.out.println(randomNumber);
             numberOfNumbersGenerated = numberOfNumbersGenerated + 1;
-
+            int[] array = new int[5];
 
 
 
@@ -52,8 +52,9 @@ public class LottoPicker {
 
               - Condition -
                     - if - checks if a condition is true, if it is it will execute once
-                    - else - executes if an if statement evaluates
+                    - else - executes if an 'if' statement evaluates
         */
+
 
         }
     }
