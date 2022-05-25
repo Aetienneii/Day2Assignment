@@ -25,19 +25,21 @@ public class LottoPicker {
         Random random = new Random();
         int numberOfNumbersGenerated = 0;
         int total = 5;
+        int randomNumber;
         ArrayList<Integer> ar = new ArrayList<Integer>(5);
         while (numberOfNumbersGenerated < total) {
-            // Adding the +1 to the end allows the range to start 1-30 instead of 0-30
-            int randomNumber = random.nextInt(30) + 1;
-            // 2nd While prevents the duplication of numbers
-            while (ar.contains(randomNumber)) {
+            // Do-while loop prevents the duplication of numbers
+            do {
+                // Adding the +1 to the end allows the range to start 1-30 instead of 0-30
                 randomNumber = random.nextInt(30) + 1;
-            }
+            }while (ar.contains(randomNumber));
             if (!ar.contains(randomNumber)) {
                 ar.add(randomNumber);
             }
+            // ++ allows the increment of 1 every repeat of loop
             numberOfNumbersGenerated++;
         }
+        // Having the print after the closed {} will ensure that only one array is displayed below
         System.out.println("Lottery Numbers: " + ar.toString());
     }
 }
