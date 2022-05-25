@@ -14,6 +14,7 @@
 // void - used when nothing is expected back in return
 // double - used when something is expected to return
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class LottoPicker {
@@ -22,15 +23,26 @@ public class LottoPicker {
         String nameOfIt = "Application started...";
         System.out.println(nameOfIt);
         Random random = new Random();
-
         int numberOfNumbersGenerated = 0;
         int total = 5;
-
+        ArrayList<Integer> ar = new ArrayList<Integer>(5);
         while (numberOfNumbersGenerated < total) {
-            int randomNumber = random.nextInt(30);
-            System.out.println(randomNumber);
-            numberOfNumbersGenerated = numberOfNumbersGenerated + 1;
-            int[] array = new int[5];
+            // Adding the +1 to the end allows the range to start 1-30 instead of 0-30
+            int randomNumber = random.nextInt(30) + 1;
+            // 2nd While prevents the duplication of numbers
+            while (ar.contains(randomNumber)) {
+                randomNumber = random.nextInt(30) + 1;
+            }
+            if (!ar.contains(randomNumber)) {
+                ar.add(randomNumber);
+            }
+            numberOfNumbersGenerated++;
+        }
+        System.out.println("Lottery Numbers: " + ar.toString());
+    }
+}
+
+
 
 
 
@@ -56,6 +68,3 @@ public class LottoPicker {
         */
 
 
-        }
-    }
-}
